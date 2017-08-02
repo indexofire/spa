@@ -12,5 +12,8 @@ $ for i in $(ls *.fastq.gz | awk -F'_' '{print $1}'); \
 ```
 
 ```bash
-$ 
+# Assemble samples
+$ for i in $(ls -D); do spades.py -k 21, 33, 55, 77 -pe -1 \
+> ${i}/${i}_1.fastq.gz -2 ${i}/${i}_2.fastq.gz \
+> --cov-cutoff -t 40 -o ${i}/assembly
 ```
