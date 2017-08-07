@@ -11,7 +11,6 @@ $ for i in $(ls *.fastq.gz | awk -F'_' '{print $1}'); \
 > done
 ```
 
-
 ### assembly data
 
 ```bash
@@ -24,14 +23,13 @@ $ for i in $(ls -D); do cp ${i}/02_assembly/scaffolds.fasta \
 > ../assemblies/HZ_${i}.fasta; done
 ```
 
-
 ### serovar check
 
 ```bash
 $ cd assemblies
 $ for i in *.fasta; do sistr --qc -vv --alleles-output allele-result.json \
 > --novel-alleles novel-alleles.fasta --cgmlst-profiles cgmlst-profiles.csv \
-> -f tab -o ${i}.table $i; done
+> -f tab -o ${i}.tab $i; done
 ```
 
 ### MLST check
